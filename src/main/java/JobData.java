@@ -76,7 +76,10 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            String aValueCaseInsensitive = aValue.toLowerCase();
+            String valueCaseInsensitive = value.toLowerCase();
+
+            if (aValueCaseInsensitive.contains(valueCaseInsensitive)) {
                 jobs.add(row);
             }
         }
@@ -102,10 +105,12 @@ public class JobData {
             for (Map.Entry<String, String> jobColumn : jobRow.entrySet()) {
 
                 String jobColumnValue = jobColumn.getValue();
+                String jobColumnValueCaseInsensitive = jobColumnValue.toLowerCase();
+                String valueCaseInsensitive = value.toLowerCase();
 
-                if (jobColumnValue.contains(value)) {
+                if (jobColumnValueCaseInsensitive.contains(valueCaseInsensitive)) {
                     jobs.add(jobRow);
-                }
+               }
 
 
             }
